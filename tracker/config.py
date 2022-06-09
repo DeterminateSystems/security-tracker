@@ -3,11 +3,14 @@ from glob import glob
 from os import environ
 from os.path import abspath
 from os.path import dirname
+from os.path import join
 
-basedir = abspath(dirname(__file__))
+package_dir = dirname(abspath(dirname(__file__)))
+default_config = join(package_dir, "config", "00-default.conf")
+config_dir = environ.get('TRACKER_CONFIG_DIR', '/etc/security-tracker')
 
 config = ConfigParser()
-config_files = sorted(glob('{}/config/*.conf'.format(basedir)))
+config_files = [default_config] + sorted(glob('{}/config/*.conf'.format(config_dir)))
 
 # ignore local configs during test run or when explicitly deactivated
 if environ.get('TRACKER_CONFIG_LOCAL', 'true').lower() not in ['1', 'yes', 'true', 'on']:
@@ -50,8 +53,8 @@ SQLITE_MMAP_SIZE = config_sqlite.getint('mmap_size')
 SQLITE_CACHE_SIZE = config_sqlite.getint('cache_size')
 
 config_sqlalchemy = config['sqlalchemy']
-SQLALCHEMY_DATABASE_URI = config_sqlalchemy['database_uri'].replace('{{BASEDIR}}', basedir)
-SQLALCHEMY_MIGRATE_REPO = config_sqlalchemy['migrate_repo'].replace('{{BASEDIR}}', basedir)
+SQLALCHEMY_DATABASE_URI = config_sqlalchemy['database_uri']
+SQLALCHEMY_MIGRATE_REPO = join(package_dir, "migrations")
 SQLALCHEMY_ECHO = config_sqlalchemy.getboolean('echo')
 SQLALCHEMY_TRACK_MODIFICATIONS = config_sqlalchemy.getboolean('track_modifications')
 
