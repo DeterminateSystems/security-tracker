@@ -6,8 +6,8 @@ from wtforms import SubmitField
 from wtforms.validators import DataRequired
 from wtforms.validators import Length
 
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker.model.user import User
 from tracker.user import hash_password
 from tracker.user import random_string

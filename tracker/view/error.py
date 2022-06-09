@@ -13,7 +13,7 @@ from werkzeug.exceptions import InternalServerError
 from werkzeug.exceptions import MethodNotAllowed
 from werkzeug.exceptions import NotFound
 
-from config import get_debug_flag
+from tracker.config import get_debug_flag
 from tracker import tracker
 from tracker.symbol import smileys_sad
 

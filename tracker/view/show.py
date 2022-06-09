@@ -9,12 +9,12 @@ from sqlalchemy import and_
 from sqlalchemy_continuum import version_class
 from sqlalchemy_continuum import versioning_manager
 
-from config import TRACKER_ADVISORY_URL
-from config import TRACKER_BUGTRACKER_URL
-from config import TRACKER_GROUP_URL
-from config import TRACKER_ISSUE_URL
-from config import TRACKER_LOG_ENTRIES_PER_PAGE
-from config import TRACKER_SUMMARY_LENGTH_MAX
+from tracker.config import TRACKER_ADVISORY_URL
+from tracker.config import TRACKER_BUGTRACKER_URL
+from tracker.config import TRACKER_GROUP_URL
+from tracker.config import TRACKER_ISSUE_URL
+from tracker.config import TRACKER_LOG_ENTRIES_PER_PAGE
+from tracker.config import TRACKER_SUMMARY_LENGTH_MAX
 from tracker import db
 from tracker import tracker
 from tracker.advisory import advisory_escape_html

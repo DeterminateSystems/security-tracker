@@ -7,11 +7,11 @@ from flask_login import login_required
 from scrypt import hash as shash
 from sqlalchemy.exc import IntegrityError
 
-from config import SSO_ADMINISTRATOR_GROUP
-from config import SSO_ENABLED
-from config import SSO_REPORTER_GROUP
-from config import SSO_SECURITY_TEAM_GROUP
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import SSO_ADMINISTRATOR_GROUP
+from tracker.config import SSO_ENABLED
+from tracker.config import SSO_REPORTER_GROUP
+from tracker.config import SSO_SECURITY_TEAM_GROUP
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker import db
 from tracker import login_manager
 from tracker.model.user import Guest

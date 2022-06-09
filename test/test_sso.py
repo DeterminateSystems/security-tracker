@@ -5,9 +5,9 @@ from flask_login import current_user
 from werkzeug.exceptions import BadRequest
 from werkzeug.exceptions import Forbidden
 
-from config import SSO_ADMINISTRATOR_GROUP
-from config import SSO_REPORTER_GROUP
-from config import SSO_SECURITY_TEAM_GROUP
+from tracker.config import SSO_ADMINISTRATOR_GROUP
+from tracker.config import SSO_REPORTER_GROUP
+from tracker.config import SSO_SECURITY_TEAM_GROUP
 from tracker.model import User
 from tracker.model.enum import UserRole
 from tracker.user import get_user_role_from_idp_groups

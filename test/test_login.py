@@ -2,7 +2,7 @@ from flask import url_for
 from flask_login import current_user
 from werkzeug.exceptions import Unauthorized
 
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker.form.login import ERROR_ACCOUNT_DISABLED
 from tracker.form.login import ERROR_INVALID_USERNAME_PASSWORD
 

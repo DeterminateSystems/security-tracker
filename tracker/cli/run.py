@@ -1,10 +1,10 @@
 from click import option
 from flask.cli import pass_script_info
 
-from config import FLASK_DEBUG
-from config import FLASK_HOST
-from config import FLASK_PORT
-from config import set_debug_flag
+from tracker.config import FLASK_DEBUG
+from tracker.config import FLASK_HOST
+from tracker.config import FLASK_PORT
+from tracker.config import set_debug_flag
 
 from .util import cli
 

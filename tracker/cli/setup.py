@@ -13,9 +13,9 @@ from click import option
 from click import pass_context
 from click import password_option
 
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
-from config import basedir
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import basedir
 from tracker.model.enum import UserRole
 from tracker.model.user import User
 from tracker.model.user import username_regex

@@ -4,7 +4,7 @@ from functools import wraps
 from flask import json
 from requests.models import PreparedRequest
 
-from config import atom_feeds
+from tracker.config import atom_feeds
 
 word_split_re = re.compile(r'(\s+)')
 punctuation_re = re.compile(

@@ -9,7 +9,7 @@ from re import sub
 from markupsafe import escape as html_escape
 from requests import get
 
-from config import TRACKER_MAILMAN_URL
+from tracker.config import TRACKER_MAILMAN_URL
 from tracker.util import chunks
 from tracker.util import issue_to_numeric
 

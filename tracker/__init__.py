@@ -17,19 +17,19 @@ from sqlalchemy_continuum.plugins import FlaskPlugin
 from sqlalchemy_continuum.plugins import PropertyModTrackerPlugin
 from werkzeug.routing import BaseConverter
 
-from config import FLASK_SESSION_PROTECTION
-from config import FLASK_STRICT_TRANSPORT_SECURITY
-from config import SQLALCHEMY_MIGRATE_REPO
-from config import SQLITE_CACHE_SIZE
-from config import SQLITE_JOURNAL_MODE
-from config import SQLITE_MMAP_SIZE
-from config import SQLITE_SYNCHRONOUS
-from config import SQLITE_TEMP_STORE
-from config import SSO_CLIENT_ID
-from config import SSO_CLIENT_SECRET
-from config import SSO_ENABLED
-from config import SSO_METADATA_URL
-from config import atom_feeds
+from tracker.config import FLASK_SESSION_PROTECTION
+from tracker.config import FLASK_STRICT_TRANSPORT_SECURITY
+from tracker.config import SQLALCHEMY_MIGRATE_REPO
+from tracker.config import SQLITE_CACHE_SIZE
+from tracker.config import SQLITE_JOURNAL_MODE
+from tracker.config import SQLITE_MMAP_SIZE
+from tracker.config import SQLITE_SYNCHRONOUS
+from tracker.config import SQLITE_TEMP_STORE
+from tracker.config import SSO_CLIENT_ID
+from tracker.config import SSO_CLIENT_SECRET
+from tracker.config import SSO_ENABLED
+from tracker.config import SSO_METADATA_URL
+from tracker.config import atom_feeds
 
 
 @event.listens_for(Engine, 'connect')

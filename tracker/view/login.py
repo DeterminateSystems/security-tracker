@@ -8,9 +8,9 @@ from flask_login import login_user
 from flask_login import logout_user
 from werkzeug.exceptions import Unauthorized
 
-from config import SSO_ENABLED
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import SSO_ENABLED
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker import db
 from tracker import oauth
 from tracker import tracker

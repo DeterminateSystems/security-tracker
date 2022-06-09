@@ -6,8 +6,8 @@ from flask_login import login_required
 from sqlalchemy_continuum import version_class
 from sqlalchemy_continuum import versioning_manager
 
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker import db
 from tracker import tracker
 from tracker.form.user import UserPasswordForm

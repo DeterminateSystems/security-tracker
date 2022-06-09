@@ -9,8 +9,8 @@ from flask import render_template
 from pytz import UTC
 from sqlalchemy import and_
 
-from config import TRACKER_FEED_ADVISORY_ENTRIES
-from config import TRACKER_ISSUE_URL
+from tracker.config import TRACKER_FEED_ADVISORY_ENTRIES
+from tracker.config import TRACKER_ISSUE_URL
 from tracker import db
 from tracker import tracker
 from tracker.advisory import advisory_extend_model_from_advisory_text

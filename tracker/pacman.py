@@ -5,8 +5,8 @@ from time import time
 from pyalpm import vercmp
 from pycman.config import init_with_config
 
-from config import PACMAN_HANDLE_CACHE_TIME
-from config import basedir
+from tracker.config import PACMAN_HANDLE_CACHE_TIME
+from tracker.config import basedir
 from tracker.util import cmp_to_key
 
 archs = ['x86_64']

@@ -2,7 +2,7 @@ from flask import url_for
 from werkzeug.exceptions import Forbidden
 from werkzeug.exceptions import NotFound
 
-from config import TRACKER_BUGTRACKER_URL
+from tracker.config import TRACKER_BUGTRACKER_URL
 from tracker.model.cve import CVE
 from tracker.model.cve import issue_types
 from tracker.model.cvegroup import CVEGroup

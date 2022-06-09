@@ -11,8 +11,8 @@ from wtforms.validators import Length
 from wtforms.validators import Optional
 from wtforms.validators import Regexp
 
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker.model.enum import UserRole
 from tracker.model.user import User
 from tracker.model.user import username_regex

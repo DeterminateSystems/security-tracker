@@ -8,7 +8,7 @@ from flask.cli import with_appcontext
 from flask_migrate import stamp
 from flask_migrate.cli import db as db_cli
 
-from config import basedir
+from tracker.config import basedir
 from tracker import db
 
 

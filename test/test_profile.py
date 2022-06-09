@@ -1,8 +1,8 @@
 from flask import url_for
 from flask_login import current_user
 
-from config import TRACKER_PASSWORD_LENGTH_MAX
-from config import TRACKER_PASSWORD_LENGTH_MIN
+from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
+from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
 from tracker.form.user import ERROR_PASSWORD_CONTAINS_USERNAME
 from tracker.form.user import ERROR_PASSWORD_INCORRECT
 from tracker.form.user import ERROR_PASSWORD_REPEAT_MISMATCHES
