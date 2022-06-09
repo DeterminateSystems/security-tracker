@@ -15,7 +15,6 @@ from click import password_option
 
 from tracker.config import TRACKER_PASSWORD_LENGTH_MAX
 from tracker.config import TRACKER_PASSWORD_LENGTH_MIN
-from tracker.config import basedir
 from tracker.model.enum import UserRole
 from tracker.model.user import User
 from tracker.model.user import username_regex
@@ -36,14 +35,6 @@ def setup():
 def database(ctx, purge=False):
     """Initialize the database tables."""
 
-    # Auto rename old database for compatibility
-    db_old = join(basedir, 'app.db')
-    db_new = join(basedir, 'tracker.db')
-    if exists(db_old) and not exists(db_new):
-        echo('Renaming old database file...', nl=False)
-        rename(db_old, db_new)
-        echo('done')
-
     ctx.invoke(initdb, purge=purge)
 
 
@@ -60,12 +51,6 @@ def bootstrap(ctx, purge=False):
 
     def mkdir(path):
         Path(path).mkdir(parents=True, exist_ok=True)
-
-    echo('Creating folders...', nl=False)
-    mkdir(join(basedir, 'pacman/cache'))
-    mkdir(join(basedir, 'pacman/log'))
-    mkdir(join(basedir, 'pacman/arch/x86_64/db'))
-    echo('done')
 
     ctx.invoke(database, purge=purge)
 
