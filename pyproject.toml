@@ -8,7 +8,7 @@ packages = [
   { include = "tracker" },
   { include = "migrations" },
 ]
-scripts.trackerctl = "tracker.cli:main"
+scripts.trackerctl = "tracker.cli:cli.main"
 include = ["config/00-default.conf"]
 
 
