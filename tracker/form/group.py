@@ -1,4 +1,3 @@
-from pyalpm import vercmp
 from wtforms import BooleanField
 from wtforms import HiddenField
 from wtforms import SelectField
@@ -44,8 +43,5 @@ class GroupForm(BaseForm):
     def validate(self):
         rv = BaseForm.validate(self)
         if not rv:
-            return False
-        if self.fixed.data and 0 <= vercmp(self.affected.data, self.fixed.data):
-            self.fixed.errors.append('Version must be newer.')
             return False
         return True

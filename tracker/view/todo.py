@@ -4,7 +4,6 @@ from operator import attrgetter
 from random import randint
 
 from flask import render_template
-from pyalpm import vercmp
 from sqlalchemy import and_
 from sqlalchemy import func
 from sqlalchemy import or_
@@ -104,9 +103,6 @@ def get_todo_data():
 
     bumped_groups = []
     for group, packages in vulnerable_group_data.items():
-        packages = sorted(packages, key=cmp_to_key(vercmp, attrgetter('version')), reverse=True)
-        if 0 == vercmp(group.affected, packages[0].version):
-            continue
         versions = filter_duplicate_packages(packages, filter_arch=True)
         pkgnames = set([pkg.name for pkg in packages])
         bumped_groups.append((group, pkgnames, versions))

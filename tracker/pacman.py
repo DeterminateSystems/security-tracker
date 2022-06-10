@@ -2,7 +2,6 @@ from operator import attrgetter
 from os import chdir
 from time import time
 
-from pyalpm import vercmp
 from pycman.config import init_with_config
 
 from tracker.config import PACMAN_HANDLE_CACHE_TIME
@@ -91,5 +90,4 @@ def filter_duplicates(packages, filter_arch=False):
 def sort_packages(packages):
     packages = sorted(packages, key=lambda item: item.arch)
     packages = sorted(packages, key=lambda item: item.db.name)
-    packages = sorted(packages, key=cmp_to_key(vercmp, attrgetter('version')), reverse=True)
     return packages
