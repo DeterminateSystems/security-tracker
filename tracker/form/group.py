@@ -9,7 +9,6 @@ from wtforms.validators import Length
 from wtforms.validators import Optional
 from wtforms.validators import Regexp
 
-from tracker.form.validators import SamePackageBase
 from tracker.form.validators import ValidIssues
 from tracker.form.validators import ValidPackageNames
 from tracker.form.validators import ValidURLs
@@ -22,7 +21,7 @@ from .base import BaseForm
 
 class GroupForm(BaseForm):
     cve = TextAreaField(u'CVE', validators=[DataRequired(), ValidIssues()])
-    pkgnames = TextAreaField(u'Package', validators=[DataRequired(), ValidPackageNames(), SamePackageBase()])
+    pkgnames = TextAreaField(u'Package', validators=[DataRequired(), ValidPackageNames()])
     affected = StringField(u'Affected', validators=[DataRequired(), Regexp(pkgver_regex)])
     fixed = StringField(u'Fixed', validators=[Optional(), Regexp(pkgver_regex)])
     status = SelectField(u'Status', choices=[(e.name, e.label) for e in [*Affected]], validators=[DataRequired()])

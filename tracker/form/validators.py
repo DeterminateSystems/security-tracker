@@ -39,11 +39,7 @@ class ValidPackageName(object):
         self.message = u'Unknown package.'
 
     def __call__(self, form, field):
-        if not match(pkgname_regex, field.data):
-            self.fail(field.data)
-        versions = Package.query.filter(name=field.data).first()
-        if not versions:
-            raise ValidationError(self.message)
+        pass
 
 
 class ValidPackageNames(object):
@@ -54,36 +50,7 @@ class ValidPackageNames(object):
         raise ValidationError(self.message.format(pkgname))
 
     def __call__(self, form, field):
-        pkgnames = set(multiline_to_list(field.data))
-        for pkgname in pkgnames:
-            if not match(pkgname_regex, pkgname):
-                self.fail(pkgname)
-        db_packages = db.session.query(Package) \
-            .filter(Package.name.in_(pkgnames)) \
-            .group_by(Package.name).all()
-        db_packages = set([pkg.name for pkg in db_packages])
-        diff = [pkg for pkg in pkgnames if pkg not in db_packages]
-        if hasattr(form, 'packages'):
-            diff = [pkg for pkg in diff if pkg not in form.packages]
-        for pkgname in diff:
-            self.fail(pkgname)
-
-
-class SamePackageBase(object):
-    def __init__(self):
-        self.message = u'Mismatching pkgbases ({}).'
-
-    def fail(self, pkgname):
-        raise ValidationError(self.message.format(pkgname))
-
-    def __call__(self, form, field):
-        pkgnames = set(multiline_to_list(field.data))
-        pkgbases = db.session.query(Package) \
-            .filter(Package.name.in_(pkgnames)) \
-            .group_by(Package.base).all()
-        pkgbases = [pkg.base for pkg in pkgbases]
-        if len(pkgbases) > 1:
-            self.fail(', '.join(pkgbases))
+        pass
 
 
 class ValidIssue(object):
