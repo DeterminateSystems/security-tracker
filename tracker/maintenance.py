@@ -13,7 +13,6 @@ from tracker.model.enum import Status
 from tracker.model.enum import affected_to_status
 from tracker.model.enum import highest_severity
 from tracker.model.enum import status_to_affected
-from tracker.pacman import search
 
 
 def update_group_status():
@@ -62,35 +61,3 @@ def recalc_group_severity():
         group.severity = new_severity
     db.session.commit()
     return updated
-
-
-def update_package_cache():
-    print('  -> Querying alpm database...', end='', flush=True)
-    packages = search('', filter_duplicate_packages=False, sort_results=False)
-    print('done')
-
-    if packages:
-        latest = max(packages, key=lambda pkg: pkg.builddate)
-        print('  -> Latest package: {} {} {}'.format(
-            latest.name, latest.version, datetime.fromtimestamp(latest.builddate).strftime('%c')))
-
-    print('  -> Updating database cache...', end='', flush=True)
-    new_packages = []
-    for package in packages:
-        new_packages.append({
-            'name': package.name,
-            'base': package.base if package.base else package.name,
-            'version': package.version,
-            'description': package.desc,
-            'url': package.url,
-            'arch': package.arch,
-            'database': package.db.name,
-            'filename': package.filename,
-            'md5sum': package.md5sum,
-            'sha256sum': package.sha256sum,
-            'builddate': package.builddate
-        })
-    Package.query.delete()
-    db.session.bulk_insert_mappings(Package, new_packages)
-    db.session.commit()
-    print('done')

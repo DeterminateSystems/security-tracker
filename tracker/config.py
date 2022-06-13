@@ -32,7 +32,6 @@ def set_debug_flag(debug):
     environ.setdefault('FLASK_DEBUG', '1' if FLASK_DEBUG else '0')
     config_flask['debug'] = 'on' if debug else 'off'
 
-
 config_tracker = config['tracker']
 TRACKER_ADVISORY_URL = config_tracker['advisory_url']
 TRACKER_BUGTRACKER_URL = config_tracker['bugtracker_url']
@@ -67,9 +66,6 @@ FLASK_SESSION_PROTECTION = None if 'none' == config_flask['session_protection'] 
 set_debug_flag(config_flask.getboolean('debug'))
 FLASK_STRICT_TRANSPORT_SECURITY = config_flask.getboolean('strict_transport_security')
 SESSION_COOKIE_SAMESITE = config_flask['session_cookie_samesite']
-
-config_pacman = config['pacman']
-PACMAN_HANDLE_CACHE_TIME = config_pacman.getint('handle_cache_time')
 
 config_sso = config['sso']
 SSO_ENABLED = config_sso.getboolean('enabled')

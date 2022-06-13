@@ -14,18 +14,6 @@ def update():
 
 
 @update.command()
-@option('--force', is_flag=True, default=False, help='Force database update.')
-def pacman(force):
-    """Update pacman database."""
-
-    from tracker.pacman import update as update_pacman_db
-
-    echo('Updating pacman database...', nl=False)
-    update_pacman_db(force=force)
-    echo('done')
-
-
-@update.command()
 def cache():
     """Update package cache."""
 
@@ -40,7 +28,6 @@ def cache():
 def env(ctx):
     """Update pacman, groups and caches."""
 
-    ctx.invoke(pacman)
     ctx.invoke(cache)
     ctx.invoke(group)
 
