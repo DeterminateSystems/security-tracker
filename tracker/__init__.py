@@ -100,7 +100,7 @@ tracker = Blueprint('tracker', __name__)
 
 def create_app(script_info=None):
     app = Flask(__name__)
-    app.config.from_object('config')
+    app.config.from_object('tracker.config')
 
     db.init_app(app)
     migrate.init_app(app)
