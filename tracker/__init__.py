@@ -157,3 +157,5 @@ def create_app(script_info=None):
                     CVEGroupPackage=CVEGroupPackage, User=User, Package=Package, oauth=oauth)
 
     return app
+
+app = create_app()

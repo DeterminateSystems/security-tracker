@@ -9,6 +9,7 @@ packages = [
   { include = "migrations" },
 ]
 scripts.trackerctl = "tracker.cli:cli.main"
+scripts.gunicorn = "gunicorn.app.wsgiapp:run"
 include = ["config/00-default.conf"]
 
 
@@ -28,6 +29,7 @@ feedgen = "^0.9.0"
 pytz = "^2022.1"
 Authlib = "^1.0.1"
 MarkupSafe = "^2.1.1"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 
