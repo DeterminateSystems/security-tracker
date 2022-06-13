@@ -6,7 +6,6 @@ from .enum import Severity
 from .enum import Status
 
 pkgname_regex = r'^([a-z\d@\.\_\+-]+)$'
-pkgver_regex = r'^(\d+:)?([\w]+[\._+]*)+\-\d+(\.\d+)?$'
 vulnerability_group_regex = r'^AVG-\d+$'
 
 

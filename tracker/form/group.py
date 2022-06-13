@@ -13,7 +13,6 @@ from tracker.form.validators import ValidIssues
 from tracker.form.validators import ValidPackageNames
 from tracker.form.validators import ValidURLs
 from tracker.model.cvegroup import CVEGroup
-from tracker.model.cvegroup import pkgver_regex
 from tracker.model.enum import Affected
 
 from .base import BaseForm
@@ -22,8 +21,8 @@ from .base import BaseForm
 class GroupForm(BaseForm):
     cve = TextAreaField(u'CVE', validators=[DataRequired(), ValidIssues()])
     pkgnames = TextAreaField(u'Package', validators=[DataRequired(), ValidPackageNames()])
-    affected = StringField(u'Affected', validators=[DataRequired(), Regexp(pkgver_regex)])
-    fixed = StringField(u'Fixed', validators=[Optional(), Regexp(pkgver_regex)])
+    affected = StringField(u'Affected', validators=[DataRequired()])
+    fixed = StringField(u'Fixed', validators=[Optional()])
     status = SelectField(u'Status', choices=[(e.name, e.label) for e in [*Affected]], validators=[DataRequired()])
     bug_ticket = StringField('Bug ticket', validators=[Optional(), Regexp(r'^\d+$')])
     reference = TextAreaField(u'References', validators=[Optional(), Length(max=CVEGroup.REFERENCES_LENGTH), ValidURLs()])
