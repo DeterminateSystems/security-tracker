@@ -145,12 +145,12 @@ def delete_user(username):
                                form=form,
                                user=user)
 
-    if not form.confirm.data:
-        return redirect('/user')
-
     active_admins = User.query.filter_by(active=True, role=UserRole.administrator).count()
     if user.id == current_user.id and 1 >= active_admins:
         return forbidden()
+
+    if not form.confirm.data:
+        return redirect('/user')
 
     user_invalidate(user)
     db.session.delete(user)
