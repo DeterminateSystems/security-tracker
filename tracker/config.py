@@ -10,7 +10,7 @@ default_config = join(package_dir, "config", "00-default.conf")
 config_dir = environ.get('TRACKER_CONFIG_DIR', '/etc/security-tracker')
 
 config = ConfigParser()
-config_files = [default_config] + sorted(glob('{}/config/*.conf'.format(config_dir)))
+config_files = [default_config] + sorted(glob('{}/*.conf'.format(config_dir)))
 
 # ignore local configs during test run or when explicitly deactivated
 if environ.get('TRACKER_CONFIG_LOCAL', 'true').lower() not in ['1', 'yes', 'true', 'on']:
