@@ -1,41 +1,22 @@
-# Arch Linux Security Tracker [![Build Status](https://travis-ci.com/archlinux/arch-security-tracker.svg?branch=master)](https://travis-ci.com/archlinux/arch-security-tracker)
+# Experimental NixOS Security Tracker
 
 The **Arch Linux Security Tracker** is a lightweight flask based panel
 for tracking vulnerabilities in Arch Linux packages, displaying
 vulnerability details and generating security advisories.
 
+This is a hacked-up version of said tracker, currently being evaluated
+for coordinating NixOS's security team.
+
 ## Features
 
 * Issue tracking
 * Issue grouping
-* libalpm support
 * Todo lists
 * Advisory scheduling
 * Advisory generation
 * SSO or local users
 
 ## Dependencies
-
-### Application
-
-* python >= 3.4
-* python-sqlalchemy
-* python-sqlalchemy-continuum
-* python-flask
-* python-flask-sqlalchemy
-* python-flask-talisman
-* python-flask-wtf
-* python-flask-login
-* python-flask-migrate
-* python-authlib
-* python-email-validator
-* python-requests
-* python-scrypt
-* python-feedgen
-* python-pytz
-* python-markupsafe
-* pyalpm
-* sqlite
 
 ### Tests
 
@@ -58,32 +39,6 @@ For running tests:
 pip install -r test-requirements.txt
 ```
 
-## Setup
-
-```
-make
-```
-
-run debug mode:
-
-```
-make run
-```
-
-adding a new user:
-
-```
-make user
-```
-
-run tests:
-
-```
-make test
-```
-
-For production run it through ```uwsgi```
-
 ## Command line interface
 
 The ```trackerctl``` script provides access to the command line interface
@@ -93,14 +48,9 @@ and all its available options.
 
 ## Configuration
 
-The configurations are all placed into the ```config``` directory and
-applied as a sorted cascade.
-
-The default values in the ```00-default.conf``` file should not be
-altered for customization. If some tweaking is required, simply create
-a new configuration file with a ```.local.conf``` suffix and some non
-zero prefix like ```20-user.local.conf```. Files using this suffix are
-on the ```.gitignore``` and not handled as untracked or dirty.
+Defaults can be seen in `config/00-default.conf`. Further values will be
+loaded from the directory specified by the `TRACKER_CONFIG_DIR`
+environment variable, or `/etc/security-tracker` if this is not set.
 
 ## SSO setup
 
@@ -109,7 +59,7 @@ A simple test environment for SSO can be configured using Keycloak:
 1. Run a local Keycloak installation via docker as [described
    upstream](https://www.keycloak.org/getting-started/getting-started-docker).
 
-2. Create an ```arch-securiy-tracker``` client in Keycloak like in
+2. Create an ```arch-security-tracker``` client in Keycloak like in
    [test/data/openid-client.json](test/data/openid-client.json).
    Make sure the client contains a mapper for the group memberships called
    ```groups``` which is included as a claim.
