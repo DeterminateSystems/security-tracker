@@ -4,7 +4,7 @@
 let
   callPackage = pkgs.newScope (pkgs // pkgs.python3Packages // self);
   self = {
-    arch-security-tracker = callPackage ./package.nix {};
+    security-tracker = callPackage ./package.nix {};
     dockerImage = callPackage ./docker.nix {};
   };
 in self
