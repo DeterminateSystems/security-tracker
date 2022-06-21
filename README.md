@@ -16,29 +16,6 @@ for coordinating NixOS's security team.
 * Advisory generation
 * SSO or local users
 
-## Dependencies
-
-### Tests
-
-* python-isort
-* python-pytest
-* python-pytest-cov
-
-### Virtualenv
-
-Python dependencies can be installed in a virtual environment (`venv`), by running:
-
-```
-python -m venv .virtualenv
-. .virtualenv/bin/activate
-pip install -r requirements.txt
-```
-
-For running tests:
-```
-pip install -r test-requirements.txt
-```
-
 ## Command line interface
 
 The ```trackerctl``` script provides access to the command line interface
