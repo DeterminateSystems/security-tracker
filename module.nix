@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 let
-  cfg = config.security-tracker;
+  cfg = config.services.security-tracker;
   settingsFormat = pkgs.formats.ini {};
 in {
-  options.security-tracker = {
+  options.services.security-tracker = {
     enable = lib.mkEnableOption "NixOS security tracker";
     package = lib.mkOption {
       type = lib.types.package;

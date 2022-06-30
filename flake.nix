@@ -19,7 +19,7 @@
     nixosTest = nixpkgs.legacyPackages.${system}.nixosTest {
       nodes.machine = {
         imports = [ self.nixosModule ];
-        security-tracker.enable = true;
+        services.security-tracker.enable = true;
       };
 
       testScript = ''
