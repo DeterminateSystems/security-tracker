@@ -1,5 +1,4 @@
-{ buildPythonPackage
-, lib
+{ lib
 , nix-gitignore
 , poetry2nix
 , openssl
